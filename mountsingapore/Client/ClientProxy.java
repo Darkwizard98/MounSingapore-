@@ -1,7 +1,7 @@
-package mountsingapore.Client;
+package net.mountsingapore.Client;
 
 import net.minecraftforge.client.MinecraftForgeClient;
-import mountsingapore.Common.CommonProxy;
+import net.mountsingapore.Common.CommonProxy;
 
 public class ClientProxy extends CommonProxy
 {

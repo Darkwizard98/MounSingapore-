@@ -1,8 +1,10 @@
-package mod.mountsingapore;
+package net.mountsingapore;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Material;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+
+
 
 public class Block1 extends Block {
 	public Block1(int i, int e){

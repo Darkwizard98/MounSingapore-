@@ -1,11 +1,11 @@
-package mod.mountsingapore;
+package net.mountsingapore;
 
-import net.minecraft.src.EnumRarity;
-import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.ItemPickaxe;
-import net.minecraft.src.ItemStack;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class PickAxe extends ItemPickaxe{
 	public PickAxe(int ItemID, EnumToolMaterial material){

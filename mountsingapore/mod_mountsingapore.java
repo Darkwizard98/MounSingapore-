@@ -1,11 +1,11 @@
-package mod.mountsingapore;
+package net.mountsingapore;
 
-import mountsingapore.Common.CommonProxy;
-import net.minecraft.src.Block;
-import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.Item;
+import net.minecraft.block.Block;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
+import net.mountsingapore.Common.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PreInit;
@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 
-@Mod(modid ="MountSingapore", name = "tut", version = "0.0.1")
+@Mod(modid ="MountSingapore", name = "School Project", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class mod_mountsingapore {
 		public static Block Block1;
@@ -27,7 +27,7 @@ public class mod_mountsingapore {
 		
 		int Block1ID, PickAxeID;
 		
-		@SidedProxy(clientSide="mountsingapore.Client.ClientProxy", serverSide="mountsingapore.common.ClientProxy")
+		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
 		public static CommonProxy proxy;
 		static EnumToolMaterial EnumAmodMat= EnumHelper.addToolMaterial("Amod", 2, 400, 6.0F, 6, 15);
 		
