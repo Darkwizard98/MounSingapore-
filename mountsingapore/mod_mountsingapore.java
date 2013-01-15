@@ -24,8 +24,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class mod_mountsingapore {
 		public static Block Block1;
 		public static Item PickAxe;
+		public static Item ThePunisher;
 		
-		int Block1ID, PickAxeID;
+		int Block1ID, PickAxeID, ThePunisherID;
 		
 		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
 		public static CommonProxy proxy;
@@ -40,6 +41,7 @@ public class mod_mountsingapore {
 			
 			Block1ID= config.getBlock("Block1ID", 1551).getInt();
 			PickAxeID= config.getItem("PickAxeID", 5001).getInt();
+			ThePunisherID= config.getItem("ThePuniserID", 5002).getInt();
 		}
 @Init
 public void load(FMLInitializationEvent event){
@@ -47,10 +49,13 @@ public void load(FMLInitializationEvent event){
 	//Item Id Range: 5001-6899
 	Block1 = new Block1(Block1ID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
 	PickAxe= new PickAxe(PickAxeID, EnumAmodMat).setItemName("TempPickAxeName").setIconIndex(3);
+	ThePunisher = new ThePunisher(ThePunisherID, EnumAmodMat).setItemName("The Punisher").setIconIndex(13);
 	GameRegistry.registerBlock(Block1);
 	
 	
 	LanguageRegistry.addName(Block1, "TempName");
+	LanguageRegistry.addName(PickAxe, "PickAxe");
+	LanguageRegistry.addName(ThePunisher, "The Punisher");
 	
 	proxy.registerRenderThings();
 }

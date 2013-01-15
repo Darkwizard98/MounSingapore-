@@ -13,6 +13,6 @@ public class Block1 extends Block {
 		
 	}
 	public String getTexutreFile(){
-		return "textures/items.png";
+		return "/textures/items.png";
 	}
 }

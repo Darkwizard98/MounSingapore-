@@ -12,7 +12,7 @@ public class PickAxe extends ItemPickaxe{
 super(ItemID, material);
 }
 public String getTextureFile(){
-return "textures/items.png";
+return "/textures/items.png";
 }
 @SideOnly(Side.CLIENT)
 public EnumRarity getRarity(ItemStack par1){
