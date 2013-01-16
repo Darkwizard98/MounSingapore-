@@ -31,7 +31,7 @@ public class mod_mountsingapore {
 		
 		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
 		public static CommonProxy proxy;
-		static EnumToolMaterial EnumAmodMat= EnumHelper.addToolMaterial("Amod", 2, 400, 6.0F, 6, 15);
+		static EnumToolMaterial EnumEmerald= EnumHelper.addToolMaterial("Emerald", 2, 400, 6.0F, 6, 15);
 		
 		@PreInit
 		public void PreLoad(FMLPreInitializationEvent event){
@@ -39,7 +39,8 @@ public class mod_mountsingapore {
 			Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 			
 			config.load();
-			
+			//Block id Range: 1551-1998
+			//Item Id Range: 5001-6899
 			Block1ID= config.getBlock("Block1ID", 1551).getInt();
 			EPickAxeID= config.getItem("EPickAxeID", 5001).getInt();
 			ThePunisherID= config.getItem("ThePuniserID", 5002).getInt();
@@ -47,12 +48,10 @@ public class mod_mountsingapore {
 		}
 @Init
 public void load(FMLInitializationEvent event){
-	//Block id Range: 1551-1998
-	//Item Id Range: 5001-6899
 	Block1 = new Block1(Block1ID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
-	EPickAxe= new EPickAxe(EPickAxeID, EnumAmodMat).setItemName("Emerald PickAxe").setIconIndex(11);
-	ThePunisher = new ThePunisher(ThePunisherID, EnumAmodMat).setItemName("The Punisher").setIconIndex(13);
-	EAxe= new EAxe(EAxeID, EnumAmodMat).setItemName("Emerald Axe").setIconIndex(12);
+	EPickAxe= new EPickAxe(EPickAxeID, EnumEmerald).setItemName("Emerald PickAxe").setIconIndex(11);
+	ThePunisher = new ThePunisher(ThePunisherID, EnumEmerald).setItemName("The Punisher").setIconIndex(13);
+	EAxe= new EAxe(EAxeID, EnumEmerald).setItemName("Emerald Axe").setIconIndex(12);
 	GameRegistry.registerBlock(Block1);
 	
 	
