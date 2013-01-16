@@ -23,10 +23,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class mod_mountsingapore {
 		public static Block Block1;
-		public static Item PickAxe;
+		public static Item EPickAxe;
 		public static Item ThePunisher;
+		public static Item EAxe;
 		
-		int Block1ID, PickAxeID, ThePunisherID;
+		int Block1ID, EPickAxeID, ThePunisherID, EAxeID;
 		
 		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
 		public static CommonProxy proxy;
@@ -40,22 +41,25 @@ public class mod_mountsingapore {
 			config.load();
 			
 			Block1ID= config.getBlock("Block1ID", 1551).getInt();
-			PickAxeID= config.getItem("PickAxeID", 5001).getInt();
+			EPickAxeID= config.getItem("EPickAxeID", 5001).getInt();
 			ThePunisherID= config.getItem("ThePuniserID", 5002).getInt();
+			EAxeID= config.getItem("EAxeID", 5003).getInt();
 		}
 @Init
 public void load(FMLInitializationEvent event){
 	//Block id Range: 1551-1998
 	//Item Id Range: 5001-6899
 	Block1 = new Block1(Block1ID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
-	PickAxe= new PickAxe(PickAxeID, EnumAmodMat).setItemName("TempPickAxeName").setIconIndex(3);
+	EPickAxe= new EPickAxe(EPickAxeID, EnumAmodMat).setItemName("Emerald PickAxe").setIconIndex(11);
 	ThePunisher = new ThePunisher(ThePunisherID, EnumAmodMat).setItemName("The Punisher").setIconIndex(13);
+	EAxe= new EAxe(EAxeID, EnumAmodMat).setItemName("Emerald Axe").setIconIndex(12);
 	GameRegistry.registerBlock(Block1);
 	
 	
 	LanguageRegistry.addName(Block1, "TempName");
-	LanguageRegistry.addName(PickAxe, "PickAxe");
+	LanguageRegistry.addName(EPickAxe, "Emerald PickAxe");
 	LanguageRegistry.addName(ThePunisher, "The Punisher");
+	LanguageRegistry.addName(EAxe, "Emerald Axe");
 	
 	proxy.registerRenderThings();
 }
