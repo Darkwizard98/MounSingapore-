@@ -22,7 +22,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid ="MountSingapore", name = "School Project", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class mod_mountsingapore {
-		public static Block Block1;
+		public static Block PunHiltBlock;
+		public static Block PunBladeBlock;
 		public static Item EPickAxe;
 		public static Item ThePunisher;
 		public static Item EAxe;
@@ -32,7 +33,7 @@ public class mod_mountsingapore {
 		public static Item LAAxe;
 		public static Item LAStick;
 		
-		int Block1ID, EPickAxeID, ThePunisherID, EAxeID, PunHiltID, PunBladeID
+		int PunHiltBlockID, EPickAxeID, ThePunisherID, EAxeID, PunHiltID, PunBladeID
 		, LavaAxeID, LAAxeID, LAStickID;
 		
 		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
@@ -50,7 +51,7 @@ public class mod_mountsingapore {
 			//Item Id Range: 5001-6899
 			
 			//Blocks
-			Block1ID= config.getBlock("Block1ID", 1551).getInt();
+			PunHiltBlockID= config.getBlock("PunHiltBlockID", 1551).getInt();
 			
 			//Items
 			EPickAxeID= config.getItem("EPickAxeID", 5001).getInt();
@@ -68,7 +69,7 @@ public class mod_mountsingapore {
 public void load(FMLInitializationEvent event){
 	
 	//Blocks
-	Block1 = new Block1(Block1ID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
+	PunHiltBlock = new PunHiltBlock(PunHiltBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
 	
 	
 	//Items
@@ -86,10 +87,10 @@ public void load(FMLInitializationEvent event){
 	LAStick= new LAStick(LAStickID).setItemName("Broken Unknown Stick").setIconIndex(1);
 	
 	EAxe= new EAxe(EAxeID, EnumEmerald).setItemName("Emerald Axe").setIconIndex(12);
-	GameRegistry.registerBlock(Block1);
+	GameRegistry.registerBlock(PunHiltBlock);
 	
 	//Blocks
-	LanguageRegistry.addName(Block1, "TempName");
+	LanguageRegistry.addName(PunHiltBlock, "PunHiltBlock");
 	
 	//Items
 	LanguageRegistry.addName(EPickAxe, "Emerald PickAxe");
