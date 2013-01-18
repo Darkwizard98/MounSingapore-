@@ -24,6 +24,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class mod_mountsingapore {
 		public static Block PunHiltBlock;
 		public static Block PunBladeBlock;
+		public static Block LAAxeBlock;
+		public static Block LAStickBlock;
 		public static Item EPickAxe;
 		public static Item ThePunisher;
 		public static Item EAxe;
@@ -34,7 +36,7 @@ public class mod_mountsingapore {
 		public static Item LAStick;
 		
 		int PunHiltBlockID, EPickAxeID, ThePunisherID, EAxeID, PunHiltID, PunBladeID
-		, LavaAxeID, LAAxeID, LAStickID;
+		, LavaAxeID, LAAxeID, LAStickID, LAAxeBlockID, LAStickBlockID, PunBladeBlockID;
 		
 		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
 		public static CommonProxy proxy;
@@ -52,6 +54,9 @@ public class mod_mountsingapore {
 			
 			//Blocks
 			PunHiltBlockID= config.getBlock("PunHiltBlockID", 1551).getInt();
+			PunBladeBlockID= config.getBlock("PunBladeBlockID", 1552).getInt();
+			LAAxeBlockID= config.getBlock("LAAxeBlockID", 1553).getInt();
+			LAStickBlockID= config.getBlock("LAStickBlockID", 1554).getInt();
 			
 			//Items
 			EPickAxeID= config.getItem("EPickAxeID", 5001).getInt();
@@ -69,8 +74,10 @@ public class mod_mountsingapore {
 public void load(FMLInitializationEvent event){
 	
 	//Blocks
-	PunHiltBlock = new PunHiltBlock(PunHiltBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
 	
+	//ThePunisherBlocks
+	PunHiltBlock = new PunHiltBlock(PunHiltBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
+	PunBladeBlock= new PunBladeBlock(PunBladeBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("PunBladeBlock");
 	
 	//Items
 	EPickAxe= new EPickAxe(EPickAxeID, EnumEmerald).setItemName("Emerald PickAxe").setIconIndex(11);
@@ -87,10 +94,13 @@ public void load(FMLInitializationEvent event){
 	LAStick= new LAStick(LAStickID).setItemName("Broken Unknown Stick").setIconIndex(1);
 	
 	EAxe= new EAxe(EAxeID, EnumEmerald).setItemName("Emerald Axe").setIconIndex(12);
+	
 	GameRegistry.registerBlock(PunHiltBlock);
+	GameRegistry.registerBlock(PunBladeBlock);
 	
 	//Blocks
 	LanguageRegistry.addName(PunHiltBlock, "PunHiltBlock");
+	LanguageRegistry.addName(PunBladeBlock, "PunBladeBlock");
 	
 	//Items
 	LanguageRegistry.addName(EPickAxe, "Emerald PickAxe");
