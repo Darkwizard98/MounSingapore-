@@ -3,6 +3,7 @@ package net.mountsingapore;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.mountsingapore.Common.CommonProxy;
@@ -38,7 +39,7 @@ public class mod_mountsingapore {
 		int PunHiltBlockID, EPickAxeID, ThePunisherID, EAxeID, PunHiltID, PunBladeID
 		, LavaAxeID, LAAxeID, LAStickID, LAAxeBlockID, LAStickBlockID, PunBladeBlockID;
 		
-		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.common.ClientProxy")
+		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.Common.CommonProxy")
 		public static CommonProxy proxy;
 		static EnumToolMaterial EnumEmerald= EnumHelper.addToolMaterial("Emerald", 2, 400, 6.0F, 6, 15);
 		static EnumToolMaterial EnumLava= EnumHelper.addToolMaterial("Lava", 2, 400, 6.0F, 6, 15);
@@ -77,7 +78,7 @@ public void load(FMLInitializationEvent event){
 	
 	//ThePunisherBlocks
 	PunHiltBlock = new PunHiltBlock(PunHiltBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
-	PunBladeBlock= new PunBladeBlock(PunBladeBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("PunBladeBlock");
+	PunBladeBlock= new PunBladeBlock(PunBladeBlockID,1).setHardness(3F).setResistance(1.0F).setBlockName("PunBladeBlock");
 	
 	//Items
 	EPickAxe= new EPickAxe(EPickAxeID, EnumEmerald).setItemName("Emerald PickAxe").setIconIndex(11);
@@ -94,9 +95,29 @@ public void load(FMLInitializationEvent event){
 	LAStick= new LAStick(LAStickID).setItemName("Broken Unknown Stick").setIconIndex(1);
 	
 	EAxe= new EAxe(EAxeID, EnumEmerald).setItemName("Emerald Axe").setIconIndex(12);
-	
+	GameRegistry();
+	LanguageRegistry();
+	proxy.registerRenderThings();
+}
+
+public void GameRegistry(){
+	//Blocks
 	GameRegistry.registerBlock(PunHiltBlock);
 	GameRegistry.registerBlock(PunBladeBlock);
+	
+	//Crafting
+	GameRegistry.addRecipe(new ItemStack(ThePunisher), new Object[]{
+		"SSS","SBS","HPS", 'S', Item.ingotIron, 'B', PunBlade, 'H', PunHilt, 'P', new ItemStack(Item.dyePowder, 5, 5)
+	});
+	GameRegistry.addRecipe(new ItemStack(LavaAxe), new Object[]{
+		"  S","OB ","HO ", 'S', Item.bucketLava, 'B', LAAxe, 'H', LAStick, 'O', Block.obsidian 
+	});
+	
+	//GameRegistry.registerWorldGenerator(new ModWorldGenerator());
+	
+}
+
+public void LanguageRegistry(){
 	
 	//Blocks
 	LanguageRegistry.addName(PunHiltBlock, "PunHiltBlock");
@@ -111,9 +132,11 @@ public void load(FMLInitializationEvent event){
 	LanguageRegistry.addName(PunHilt, "Broken Punisher Hilt");
 	LanguageRegistry.addName(PunBlade, "Broken Punisher Blade");
 	
+	////Lava Axe
+	LanguageRegistry.addName(LavaAxe, "Lava Axe");
+	LanguageRegistry.addName(LAAxe, "Broken Unknown Axe Blade");
+	LanguageRegistry.addName(LAStick, "Broken Unkown Obsidian Stick");
 	//// Tools
 	LanguageRegistry.addName(EAxe, "Emerald Axe");
-	
-	proxy.registerRenderThings();
 }
 }
