@@ -23,21 +23,15 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid ="MountSingapore", name = "School Project", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class mod_mountsingapore {
-		public static Block PunHiltBlock;
-		public static Block PunBladeBlock;
-		public static Block LAAxeBlock;
-		public static Block LAStickBlock;
-		public static Item EPickAxe;
-		public static Item ThePunisher;
-		public static Item EAxe;
-		public static Item PunHilt;
-		public static Item PunBlade;
-		public static Item LavaAxe;
-		public static Item LAAxe;
-		public static Item LAStick;
+		public static Block PunHiltBlock,PunBladeBlock,LAAxeBlock,LAStickBlock,SAstickBlock,SAheadBlock,SPheadBlock,
+		SPstickBlock;
 		
-		int PunHiltBlockID, EPickAxeID, ThePunisherID, EAxeID, PunHiltID, PunBladeID
-		, LavaAxeID, LAAxeID, LAStickID, LAAxeBlockID, LAStickBlockID, PunBladeBlockID;
+		public static Item EPickAxe, ThePunisher,EAxe,PunHilt,PunBlade,LavaAxe,LAAxe,LAStick,SPtaff, SPhead,SPstick,
+		 SAtaff,SAhead,SAstick;
+		
+		int PunHiltBlockID, EPickAxeID, ThePunisherID, EAxeID, PunHiltID, PunBladeID, LavaAxeID, LAAxeID, LAStickID
+		,LAAxeBlockID, LAStickBlockID, PunBladeBlockID, SPtaffID,SPheadID,SPstickID,SAtaffID,SAheadID,SAstickID,
+		SAheadBlockID,SAstickBlockID,SPheadBlockID,SPstickBlockID;
 		
 		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.Common.CommonProxy")
 		public static CommonProxy proxy;
@@ -58,6 +52,10 @@ public class mod_mountsingapore {
 			PunBladeBlockID= config.getBlock("PunBladeBlockID", 1552).getInt();
 			LAAxeBlockID= config.getBlock("LAAxeBlockID", 1553).getInt();
 			LAStickBlockID= config.getBlock("LAStickBlockID", 1554).getInt();
+			SAheadBlockID = config.getBlock("SAheadBlockID", 1555).getInt();
+			SAstickBlockID = config.getBlock("SAstickBlockID", 1556).getInt();
+			SPheadBlockID = config.getBlock("SPheadBlockID",1557).getInt();
+			SPstickBlockID = config.getBlock("SPstickBlock",1558).getInt();
 			
 			//Items
 			EPickAxeID= config.getItem("EPickAxeID", 5001).getInt();
@@ -68,7 +66,12 @@ public class mod_mountsingapore {
 			LavaAxeID= config.getItem("LavaAxeID", 5006).getInt();
 			LAAxeID= config.getItem("LLAxeID", 5007).getInt();
 			LAStickID= config.getItem("LAStickID", 5008).getInt();
-			
+			SAtaffID= config.getItem("SAtaffID", 5009).getInt();
+			SAheadID= config.getItem("SAheadID", 5010).getInt();
+			SAstickID= config.getItem("SAstickID", 5011).getInt();
+			SPtaffID= config.getItem("SAtaffID", 5012).getInt();
+			SPheadID= config.getItem("SPheadID", 5013).getInt();
+			SPstickID= config.getItem("SPstickID", 5014).getInt();
 			
 		}
 @Init
@@ -76,12 +79,31 @@ public void load(FMLInitializationEvent event){
 	
 	//Blocks
 	
+	
 	//ThePunisherBlocks
-	PunHiltBlock = new PunHiltBlock(PunHiltBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("TestBlock");
+	PunHiltBlock = new PunHiltBlock(PunHiltBlockID,0).setHardness(3F).setResistance(1.0F).setBlockName("PunHiltBlock");
 	PunBladeBlock= new PunBladeBlock(PunBladeBlockID,1).setHardness(3F).setResistance(1.0F).setBlockName("PunBladeBlock");
+	
+	//staff blocks
+	SAheadBlock = new SAheadBlock(SAheadBlockID,3).setHardness(3F).setResistance(1.0F).setBlockName("Serpent Gem Block");
+	SAstickBlock = new SAstickBlock(SAstickBlockID,7).setHardness(3F).setResistance(1.0F).setBlockName("Serpent stick Block");
+	SPheadBlock = new SPheadBlock(SPheadBlockID,2).setHardness(3F).setResistance(1.0F).setBlockName("Emun gem");
+	SPstickBlock = new SPstickBlock(SPstickBlockID,5).setHardness(3F).setResistance(1.0F).setBlockName("Emun stick");
+	
+	
+	
+	////lava Axe Blocks
+	LAAxeBlock= new LAAxeBlock(LAAxeBlockID,4).setHardness(3F).setResistance(1.0F).setBlockName("Lava Axe Block");
+	LAStickBlock= new LAStickBlock(LAStickBlockID,6).setHardness(3F).setResistance(1.0F).setBlockName("Lava hilt Block");
 	
 	//Items
 	EPickAxe= new EPickAxe(EPickAxeID, EnumEmerald).setItemName("Emerald PickAxe").setIconIndex(11);
+	
+	////staffs
+	SAtaff = new SAtaff(SAtaffID,EnumEmerald).setItemName("Serpent Staff").setIconIndex(29);
+	SAhead = new SAhead(SAheadID).setItemName("Serpent gem").setIconIndex(36);
+	SAstick = new SAstick(SAstickID).setItemName("Powerful Stick").setIconIndex(37);
+	SPtaff = new SPtaff(SPtaffID, EnumEmerald).setItemName("Emun Staff").setIconIndex(0);
 	
 	
 	////The Punisher
@@ -104,6 +126,12 @@ public void GameRegistry(){
 	//Blocks
 	GameRegistry.registerBlock(PunHiltBlock);
 	GameRegistry.registerBlock(PunBladeBlock);
+	GameRegistry.registerBlock(LAAxeBlock);
+	GameRegistry.registerBlock(LAStickBlock);
+	GameRegistry.registerBlock(SPstickBlock);
+	GameRegistry.registerBlock(SPheadBlock);
+	GameRegistry.registerBlock(SAheadBlock);
+	GameRegistry.registerBlock(SAheadBlock);
 	
 	//Crafting
 	GameRegistry.addRecipe(new ItemStack(ThePunisher), new Object[]{
@@ -112,8 +140,13 @@ public void GameRegistry(){
 	GameRegistry.addRecipe(new ItemStack(LavaAxe), new Object[]{
 		"  S","OB ","HO ", 'S', Item.bucketLava, 'B', LAAxe, 'H', LAStick, 'O', Block.obsidian 
 	});
-	
-	//GameRegistry.registerWorldGenerator(new ModWorldGenerator());
+	GameRegistry.addRecipe(new ItemStack(SPtaff), new Object[]{
+		"  ","B","B ", 'S', SAhead, 'B', SAstick
+	});
+	GameRegistry.addRecipe(new ItemStack(SAtaff), new Object[]{
+		"  ","S","B ", 'S', SPhead, 'B', SPstick
+	});
+	GameRegistry.registerWorldGenerator(new ModWorldGenerator());
 	
 }
 
