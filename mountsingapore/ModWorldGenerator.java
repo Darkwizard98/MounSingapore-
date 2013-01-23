@@ -21,6 +21,13 @@ public class ModWorldGenerator implements IWorldGenerator {
 
 	public void generateSurface(World world, Random rand, int blockX, int blockZ) {
 		addOreGen(mod_mountsingapore.LAAxeBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.LAStickBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.PunBladeBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.PunHiltBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.SAstickBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.SAheadBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.SPstickBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
+		addOreGen(mod_mountsingapore.SPheadBlock.blockID, 1, 2, 16, blockX, blockZ, world, rand);
 		}
 
 	public void generateNether(World world, Random rand, int blockX, int blockZ) {}
