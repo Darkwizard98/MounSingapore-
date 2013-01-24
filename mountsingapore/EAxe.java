@@ -1,4 +1,4 @@
-package net.mountsingapore;
+package mountsingapore;
 
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemAxe;

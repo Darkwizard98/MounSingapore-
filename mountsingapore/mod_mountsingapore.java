@@ -1,12 +1,12 @@
-package net.mountsingapore;
+package mountsingapore;
 
+import mountsingapore.Common.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
-import net.mountsingapore.Common.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PreInit;
@@ -33,7 +33,7 @@ public class mod_mountsingapore {
 		,LAAxeBlockID, LAStickBlockID, PunBladeBlockID, SPtaffID,SPheadID,SPstickID,SAtaffID,SAheadID,SAstickID,
 		SAheadBlockID,SAstickBlockID,SPheadBlockID,SPstickBlockID;
 		
-		@SidedProxy(clientSide="net.mountsingapore.Client.ClientProxy", serverSide="net.mountsingapore.Common.CommonProxy")
+		@SidedProxy(clientSide="mountsingapore.Client.ClientProxy", serverSide="mountsingapore.Common.CommonProxy")
 		public static CommonProxy proxy;
 		static EnumToolMaterial EnumEmerald= EnumHelper.addToolMaterial("Emerald", 2, 400, 6.0F, 6, 15);
 		static EnumToolMaterial EnumLava= EnumHelper.addToolMaterial("Lava", 2, 400, 6.0F, 6, 15);
@@ -140,12 +140,12 @@ public void GameRegistry(){
 	GameRegistry.addRecipe(new ItemStack(LavaAxe), new Object[]{
 		"  S","OB ","HO ", 'S', Item.bucketLava, 'B', LAAxe, 'H', LAStick, 'O', Block.obsidian 
 	});
-	GameRegistry.addRecipe(new ItemStack(SPtaff), new Object[]{
-		"  ","B","B ", 'S', SAhead, 'B', SAstick
-	});
-	GameRegistry.addRecipe(new ItemStack(SAtaff), new Object[]{
-		"  ","S","B ", 'S', SPhead, 'B', SPstick
-	});
+//	GameRegistry.addRecipe(new ItemStack(SPtaff), new Object[]{
+//		"  ","B  ","B  ", 'S', SAhead, 'B', SAstick
+//	});
+//	GameRegistry.addRecipe(new ItemStack(SAtaff), new Object[]{
+//		"   ","S  ","B  ", 'S', SPhead, 'B', SPstick
+//	});
 	GameRegistry.registerWorldGenerator(new ModWorldGenerator());
 	
 }

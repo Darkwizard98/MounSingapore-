@@ -1,4 +1,4 @@
-package net.mountsingapore;
+package mountsingapore;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;

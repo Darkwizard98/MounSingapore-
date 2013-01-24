@@ -1,4 +1,4 @@
-package net.mountsingapore;
+package mountsingapore;
 
 import java.util.Random;
 
