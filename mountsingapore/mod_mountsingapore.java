@@ -66,10 +66,10 @@ public class mod_mountsingapore {
 			LavaAxeID= config.getItem("LavaAxeID", 5006).getInt();
 			LAAxeID= config.getItem("LLAxeID", 5007).getInt();
 			LAStickID= config.getItem("LAStickID", 5008).getInt();
-			SAtaffID= config.getItem("SAtaffID", 5009).getInt();
+			SAtaffID= config.getItem("SAtaffID", 5050).getInt();
 			SAheadID= config.getItem("SAheadID", 5010).getInt();
 			SAstickID= config.getItem("SAstickID", 5011).getInt();
-			SPtaffID= config.getItem("SAtaffID", 5012).getInt();
+			SPtaffID= config.getItem("SAtaffID", 5015).getInt();
 			SPheadID= config.getItem("SPheadID", 5013).getInt();
 			SPstickID= config.getItem("SPstickID", 5014).getInt();
 			
@@ -103,7 +103,7 @@ public void load(FMLInitializationEvent event){
 	SAtaff = new SAtaff(SAtaffID,EnumEmerald).setItemName("Serpent Staff").setIconIndex(29);
 	SAhead = new SAhead(SAheadID).setItemName("Serpent gem").setIconIndex(36);
 	SAstick = new SAstick(SAstickID).setItemName("Powerful Stick").setIconIndex(37);
-	SPtaff = new SPtaff(SPtaffID, EnumEmerald).setItemName("Emun Staff").setIconIndex(0);
+	SPtaff = new SPtaff(SPtaffID, EnumEmerald).setItemName("Emun Staff").setIconIndex(8);
 	
 	
 	////The Punisher
@@ -113,8 +113,8 @@ public void load(FMLInitializationEvent event){
 	
 	////Lava Axe
 	LavaAxe= new LavaAxe(LavaAxeID, EnumLava).setItemName("Lava Axe").setIconIndex(28);
-	LAAxe= new LLAxe(LAAxeID).setItemName("Broken Unknown Blade").setIconIndex(1);
-	LAStick= new LAStick(LAStickID).setItemName("Broken Unknown Stick").setIconIndex(1);
+	LAAxe= new LLAxe(LAAxeID).setItemName("Broken Unknown Blade").setIconIndex(30);
+	LAStick= new LAStick(LAStickID).setItemName("Broken Unknown Stick").setIconIndex(31);
 	
 	EAxe= new EAxe(EAxeID, EnumEmerald).setItemName("Emerald Axe").setIconIndex(12);
 	GameRegistry();
@@ -130,7 +130,7 @@ public void GameRegistry(){
 	GameRegistry.registerBlock(LAStickBlock);
 	GameRegistry.registerBlock(SPstickBlock);
 	GameRegistry.registerBlock(SPheadBlock);
-	GameRegistry.registerBlock(SAheadBlock);
+	GameRegistry.registerBlock(SAstickBlock);
 	GameRegistry.registerBlock(SAheadBlock);
 	
 	//Crafting
@@ -140,12 +140,12 @@ public void GameRegistry(){
 	GameRegistry.addRecipe(new ItemStack(LavaAxe), new Object[]{
 		"  S","OB ","HO ", 'S', Item.bucketLava, 'B', LAAxe, 'H', LAStick, 'O', Block.obsidian 
 	});
-//	GameRegistry.addRecipe(new ItemStack(SPtaff), new Object[]{
-//		"  ","B  ","B  ", 'S', SAhead, 'B', SAstick
-//	});
-//	GameRegistry.addRecipe(new ItemStack(SAtaff), new Object[]{
-//		"   ","S  ","B  ", 'S', SPhead, 'B', SPstick
-//	});
+	//GameRegistry.addRecipe(new ItemStack(SAtaff), new Object[]{
+		//"   "," B "," B ", 'S', SAhead, 'B', SAstick
+	//});
+ //GameRegistry.addRecipe(new ItemStack(SPtaff), new Object[]{
+	//"   "," S "," B ", 'S', SPhead, 'B', SPstick
+	//});
 	GameRegistry.registerWorldGenerator(new ModWorldGenerator());
 	
 }
@@ -153,12 +153,19 @@ public void GameRegistry(){
 public void LanguageRegistry(){
 	
 	//Blocks
-	LanguageRegistry.addName(PunHiltBlock, "PunHiltBlock");
-	LanguageRegistry.addName(PunBladeBlock, "PunBladeBlock");
+	LanguageRegistry.addName(PunHiltBlock, "PunisherHilt");
+	LanguageRegistry.addName(PunBladeBlock, "PunisherBlade");
+	LanguageRegistry.addName(SPstickBlock,"Emun stick");
+	LanguageRegistry.addName(SPheadBlock,"Emun head");
+	LanguageRegistry.addName(SAstickBlock,"Serpent stick");
+	LanguageRegistry.addName(SAheadBlock,"Serpent head");
 	
 	//Items
 	LanguageRegistry.addName(EPickAxe, "Emerald PickAxe");
 	
+	////staffs
+	LanguageRegistry.addName(SPtaff,"Serpent staff");
+	LanguageRegistry.addName(SAtaff,"Emunstaff");
 	
 	//// The Punisher
 	LanguageRegistry.addName(ThePunisher, "The Punisher");
