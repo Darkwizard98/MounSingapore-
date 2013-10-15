@@ -1,0 +1,8 @@
+/test
+/textures
+/mountsingapore
+/extra
+/.git
+!/Release_Builds
+*.bat
+*.sh
